@@ -12,7 +12,18 @@ namespace WebApplication1 {
         }
 
         protected void darDeAlta(object sender, EventArgs e) {
+            //Setear parametros
+            altaDatasource.InsertParameters["nombre"].DefaultValue = nombreTextbox.Text;
+            altaDatasource.InsertParameters["clave"].DefaultValue = claveTextbox.Text;
+            altaDatasource.InsertParameters["mail"].DefaultValue = mailTextbox.Text;
 
+            int resultado = altaDatasource.Insert();
+
+            if(resultado > 0) {
+                resultadoLabel.Text = $"El usuario con nombre {nombreTextbox.Text} se cargo con exito";
+            } else {
+                resultadoLabel.Text = $"Ocurrio un error al insertar el usuario con nombre {nombreTextbox.Text}";
+            }
         }
     }
 }

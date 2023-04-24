@@ -13,7 +13,7 @@
             <asp:Label ID="Label1" runat="server" Text="Ingrese el nombre del usuario: "></asp:Label>
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             </br>
-            <asp:Button ID="Button1" runat="server" Text="Buscar" />
+            <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
             </br>
             </br>
             </br>
@@ -31,6 +31,16 @@
             </br>
             <asp:Label ID="resultadoLabel" runat="server" Text=""></asp:Label>
             </br>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:issdConnectionString %>" SelectCommand="SELECT * FROM [Usuario] WHERE nombre = @nombre" UpdateCommand="UPDATE Usuario SET nombre = @nombre, clave = @clave, mail = @mail WHERE (nombre = @clave)">
+                <SelectParameters>
+                    <asp:Parameter Name="nombre" />
+                </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="nombre" />
+                    <asp:Parameter Name="clave" />
+                    <asp:Parameter Name="mail" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
             </br>
             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/WebForm1.aspx">Retornar</asp:HyperLink>
 

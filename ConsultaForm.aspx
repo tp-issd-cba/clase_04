@@ -17,6 +17,11 @@
             </br>
             <asp:Label ID="resultadoLabel" runat="server" Text=""></asp:Label>
             </br>
+            <asp:SqlDataSource ID="consultaDatasource" runat="server" ConnectionString="<%$ ConnectionStrings:issdConnectionString %>" SelectCommand="SELECT * FROM [Usuario] WHERE nombre=@nombre">
+                <SelectParameters>
+                    <asp:Parameter Name="nombre" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             </br>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/WebForm1.aspx">Retornar</asp:HyperLink>
 

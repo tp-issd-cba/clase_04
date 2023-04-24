@@ -12,7 +12,13 @@ namespace WebApplication1 {
         }
 
         protected void borrar(object sender, EventArgs e) {
-
+            SqlDataSource1.DeleteParameters["nombre"].DefaultValue = TextBox1.Text;
+            int resultado = SqlDataSource1.Delete();
+            if(resultado > 0) {
+                resultadoLabel.Text = "se elimino";
+            } else {
+                resultadoLabel.Text = "no se elimino :(";
+            }
         }
     }
 }

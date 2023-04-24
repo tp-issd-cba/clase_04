@@ -19,6 +19,11 @@
             </br>
             </br>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/WebForm1.aspx">Retornar</asp:HyperLink>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:issdConnectionString %>" DeleteCommand="DELETE FROM Usuario WHERE nombre = @nombre" SelectCommand="SELECT * FROM [Usuario]">
+                <DeleteParameters>
+                    <asp:Parameter Name="nombre" />
+                </DeleteParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>

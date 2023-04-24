@@ -24,6 +24,16 @@
             </br>
             <asp:Label ID="resultadoLabel" runat="server" Text=""></asp:Label>
             </br>
+            <asp:SqlDataSource ID="altaDatasource" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:issdConnectionString %>" 
+                InsertCommand="INSERT INTO Usuario(nombre, clave, mail) VALUES (@nombre, @clave, @mail)"
+                SelectCommand="SELECT * FROM [Usuario]">
+                <InsertParameters>
+                    <asp:Parameter Name="nombre" />
+                    <asp:Parameter Name="clave" />
+                    <asp:Parameter Name="mail" />
+                </InsertParameters>
+            </asp:SqlDataSource>
             </br>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/WebForm1.aspx">Retornar</asp:HyperLink>
 
